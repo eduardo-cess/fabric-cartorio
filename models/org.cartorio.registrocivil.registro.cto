@@ -1,0 +1,35 @@
+namespace org.cartorio.registrocivil.registro
+
+import org.cartorio.registrocivil.cartorio.Cartorio
+import org.cartorio.registrocivil.participante.Funcionario
+
+asset Registro identified by registroId {
+  o String registroId
+  o String nome
+  o DateTime dateTimeRegistro
+  o Pessoa pessoa1
+  o Pessoa pessoa2
+  o TipoRegistro tipoRegistros
+  --> Funcionario Funcionario
+  --> Cartorio cartorio
+}
+
+concept Pessoa {
+  o String nome
+  o String dataNascimento
+}
+
+enum TipoRegistro {
+  o NASCIMENTO
+  o OBITO
+  o CASAMENTO
+}
+
+transaction CriarRegistro {
+  o Funcionario Funcionario
+  o Cartorio cartorio
+}
+
+event RegistroCriado {
+  o String registroId
+}

@@ -1,0 +1,14 @@
+namespace org.cartorio.registrocivil.cartorio
+
+asset Cartorio identified by cartorioId {
+  o String cartorioId
+  o String nome
+}
+
+transaction CriarCartorio {
+  o String nome
+}
+
+event CartorioCriado {
+  o String cartorioId
+}

@@ -1,0 +1,36 @@
+namespace org.cartorio.registrocivil.participante
+import org.cartorio.registrocivil.cartorio.Cartorio
+
+
+abstract participant Participante identified by participanteId {
+  o String  participanteId
+  o Info    info
+}
+
+concept Info {
+  o String pNome
+  o String uNome
+  // o String email
+}
+
+participant Funcionario extends Participante {
+  o Cargo cargo
+  --> Cartorio cartorio
+}
+
+participant GerenteDaRede extends Participante{
+
+}
+
+enum Cargo {
+  o ADMIN
+  o FUNCIONARIO
+}
+
+transaction CriarParticipante {
+  
+}
+
+event ParticipanteCriado {
+  o String participanteId
+}
